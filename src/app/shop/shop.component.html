@@ -22,53 +22,11 @@ limitations under the License.
       <mat-card-title>Fillings</mat-card-title>
       <mat-card-content>  
         <!-- TODO: #7. Create selectable controls with Angular Material -->
-        <ul>
-          <li>
-            <input type="checkbox" name="vegan" id="vegan"
-                   [(ngModel)]="fillings.bokchoy"
-                   [(ngModel)]="fillings.tofu">
-            <label for="tall">Vegan</label>
-            <ul>
-              <li>
-                <input type="checkbox" 
-                        id="bokchoy" 
-                        [(ngModel)]="fillings.bokchoy"
-                        name="bokchoy">
-                <label for="bokchoy">Bok Choy</label>
-              </li>
-              <li>
-                <input type="checkbox" 
-                        id="tofu" 
-                        [(ngModel)]="fillings.tofu"
-                        name="tofu">
-                <label for="tofu">Tofu & Shitake</label>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <input type="checkbox" 
-                   [(ngModel)]="fillings.chicken"
-                   [(ngModel)]="fillings.impossible"
-                   name="meat" id="meat">
-            <label for="meat">Meat</label>
-            <ul>
-              <li>
-                <input type="checkbox" 
-                        id="chicken" 
-                        [(ngModel)]="fillings.chicken"
-                        name="chicken">
-                <label for="chicken">Chicken</label>
-              </li>
-              <li>
-                <input type="checkbox" 
-                        id="impossible" 
-                        [(ngModel)]="fillings.impossible"
-                        name="impossible">
-                <label for="impossible">Impossible Meat</label>
-              </li>
-            </ul>
-          </li>
-        </ul>
+        <mat-selection-list [(ngModel)]="selectedFillings" aria-label="Dumpling fillings">
+          <mat-list-option *ngFor="let flavor of fillings" [value]="flavor" color="primary">
+            {{ flavor }}
+          </mat-list-option>
+        </mat-selection-list>
       </mat-card-content>
     </mat-card>
     <mat-card class="quantity selection-card">
