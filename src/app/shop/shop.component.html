@@ -95,7 +95,10 @@ limitations under the License.
     </mat-card>
   </div>
   <!-- TODO: #6. Use Semantic HTML (& Angular Material!) -->
-  <div (click)="fauxPurchase()" class="purchase-button">
-    <h3>Purchase</h3>
-  </div>
+  <button mat-flat-button 
+    color="primary" 
+    class="purchase-button"
+    (click)="fauxPurchase()">
+    Purchase
+  </button>
 </div>
