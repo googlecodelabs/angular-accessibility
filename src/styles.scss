@@ -1,0 +1,86 @@
+/**
+ * Copyright 2021 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+@use '~@angular/material' as mat;
+
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@1,700&Lato:wght@400;700;900&display=swap');
+$vollkorn-font-family: 'Vollkorn', serif;
+$lato-font-family: 'Lato', sans-serif;
+
+// TODO: #5. Ensure adequate color contrast
+$light-primary: mat.define-palette(mat.$pink-palette, $default: A100, $lighter: 100, $text: 500);
+$light-accent: mat.define-palette(mat.$red-palette, $default: A400, $lighter: 100);
+
+$dark-primary: mat.define-palette(mat.$light-green-palette, $default: A100, $lighter: 50, $text: 900);
+$dark-accent: mat.define-palette(mat.$indigo-palette, $default: 600, $lighter: 500);
+
+$custom-typography: mat.define-typography-config(
+  $font-family: $lato-font-family,
+  $display-4:     mat.define-typography-level(112px, 112px, 700, $letter-spacing: -0.05em, $font-family: $vollkorn-font-family),
+  $display-3:     mat.define-typography-level(56px, 56px, 700, $letter-spacing: -0.02em, $font-family: $vollkorn-font-family),
+  $display-2:     mat.define-typography-level(45px, 48px, 700, $letter-spacing: -0.005em, $font-family: $vollkorn-font-family),
+  $display-1:     mat.define-typography-level(34px, 40px, 700, $font-family: $vollkorn-font-family),
+  $headline:      mat.define-typography-level(18px, 32px, 700, $font-family: $vollkorn-font-family),
+  $title:         mat.define-typography-level(50px, 32px, 700, $font-family: $vollkorn-font-family),
+  $subheading-2:  mat.define-typography-level(18px, 28px, 700, $letter-spacing: .2em, $font-family: $lato-font-family),
+  $subheading-1:  mat.define-typography-level(18px, 24px, 700, $font-family: $lato-font-family),
+  $body-2:        mat.define-typography-level(18px, 24px, 700, $font-family: $lato-font-family),
+  $body-1:        mat.define-typography-level(16px, 20px, 700, $font-family: $lato-font-family),
+  $caption:       mat.define-typography-level(16px, 20px, 700, $font-family: $lato-font-family),
+  $button:        mat.define-typography-level(18px, 28px, 700, $font-family: $lato-font-family),
+  $input:         mat.define-typography-level(inherit, 1.125, 700, $font-family: $lato-font-family)
+);
+
+$light-theme: mat.define-light-theme((
+  color: (
+    primary: $light-primary,
+    accent: $light-accent,
+  ),
+  typography: $custom-typography
+));
+
+$dark-theme: mat.define-dark-theme((
+ color: (
+   primary: $dark-primary,
+   accent: $dark-accent
+ )
+));
+
+@include mat.core();
+@include mat.core-theme($light-theme);
+@include mat.all-component-themes($light-theme);
+@include mat.all-component-typographies($light-theme);
+
+.dark-theme {
+  @include mat.core-color($dark-theme);
+  @include mat.all-component-themes($dark-theme);
+}
+
+/* Global styles */
+html, body { 
+  height: 100%; 
+}
+
+body { 
+  margin: 0; 
+  -webkit-appearance: none;
+  background-color: mat.get-color-from-palette($light-accent, default);
+  color: mat.get-contrast-color-from-palette($light-accent, default);
+}
+
+.dark-theme body {
+  background-color: mat.get-color-from-palette($dark-accent, default);
+  color: mat.get-contrast-color-from-palette($dark-accent, default);
+}

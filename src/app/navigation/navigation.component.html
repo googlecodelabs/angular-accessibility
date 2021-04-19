@@ -1,0 +1,39 @@
+<!--
+Copyright 2021 Google LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<mat-toolbar color="primary">
+  <mat-toolbar-row class="title-header">
+    <a mat-icon-button class="home-icon" aria-label="Home"
+     routerLink="/" routerLinkActive="active" color="primary">
+      <mat-icon>home</mat-icon>
+    </a>
+    <h1 class="display-1">Dumpling Shop</h1>
+    <button mat-icon-button 
+      (click)="toggleTheme()" 
+      matTooltip="Toggle theme"
+      attr.aria-label="Switch to {{ isDark ? 'light' : 'dark' }} theme"
+      color="primary">
+      <mat-icon>brightness_medium</mat-icon>
+  </button>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row class="navigation-links">
+    <nav>
+      <a mat-button routerLink="/shop" routerLinkActive="active">Our Shop</a>
+      <a mat-button routerLink="/about" routerLinkActive="active">Our Story</a>
+      <a mat-button routerLink="/locate" routerLinkActive="active">Find Us</a>
+    </nav>
+  </mat-toolbar-row>
+</mat-toolbar>

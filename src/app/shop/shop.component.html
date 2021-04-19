@@ -1,0 +1,101 @@
+<!--
+Copyright 2021 Google LLC
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<div class="shop">
+  <div class="dumpling-container">
+    <app-dumpling *ngFor="let item of counter(quantity)" [color]="color"></app-dumpling>
+  </div>
+  <div class="dumpling-customizations">
+    <mat-card class="fillings selection-card">
+      <mat-card-title>Fillings</mat-card-title>
+      <mat-card-content>  
+        <!-- TODO: #7. Create selectable controls with Angular Material -->
+        <ul>
+          <li>
+            <input type="checkbox" name="vegan" id="vegan"
+                   [(ngModel)]="fillings.bokchoy"
+                   [(ngModel)]="fillings.tofu">
+            <label for="tall">Vegan</label>
+            <ul>
+              <li>
+                <input type="checkbox" 
+                        id="bokchoy" 
+                        [(ngModel)]="fillings.bokchoy"
+                        name="bokchoy">
+                <label for="bokchoy">Bok Choy</label>
+              </li>
+              <li>
+                <input type="checkbox" 
+                        id="tofu" 
+                        [(ngModel)]="fillings.tofu"
+                        name="tofu">
+                <label for="tofu">Tofu & Shitake</label>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <input type="checkbox" 
+                   [(ngModel)]="fillings.chicken"
+                   [(ngModel)]="fillings.impossible"
+                   name="meat" id="meat">
+            <label for="meat">Meat</label>
+            <ul>
+              <li>
+                <input type="checkbox" 
+                        id="chicken" 
+                        [(ngModel)]="fillings.chicken"
+                        name="chicken">
+                <label for="chicken">Chicken</label>
+              </li>
+              <li>
+                <input type="checkbox" 
+                        id="impossible" 
+                        [(ngModel)]="fillings.impossible"
+                        name="impossible">
+                <label for="impossible">Impossible Meat</label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="quantity selection-card">
+      <mat-card-title>Quantity</mat-card-title>
+      <mat-card-content>
+        <!-- TODO: #8. Provide control labels with ARIA -->
+        <mat-slider
+          color="primary"
+          class="quantity-slider"
+          [max]="13"
+          [min]="1"
+          [step]="1"
+          [thumbLabel]="true"
+          [tickInterval]="1"
+          [(ngModel)]="quantity">
+        </mat-slider>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="color selection-card">
+      <mat-card-title>Color</mat-card-title>
+      <mat-card-content>
+        <app-color-picker [color]="color" (recolor)="changeColor($event)"></app-color-picker>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <!-- TODO: #6. Use Semantic HTML (& Angular Material!) -->
+  <div (click)="fauxPurchase()" class="purchase-button">
+    <h3>Purchase</h3>
+  </div>
+</div>

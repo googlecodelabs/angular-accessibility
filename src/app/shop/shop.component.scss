@@ -1,0 +1,114 @@
+/**
+ * Copyright 2021 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+@use '~@angular/material' as mat;
+
+// TODO: #12. Enable HighContrast mode
+
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+.shop {
+  width: 75%;
+  padding: 5%;
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+
+  .dumpling-container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 45vh;
+    overflow: hidden;
+    place-content: space-evenly center;
+  }
+
+  .dumpling-customizations {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .selection-card {
+      margin: 0 10px 10px 0;
+      display: flex;
+      flex-direction: column;
+      background-color: mat.get-color-from-palette(mat.$pink-palette, 100);
+
+      .mat-card-content {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    .quantity-slider {
+      width: 100%;
+    }
+
+    .fillings {
+      flex-grow: 1;
+
+      // TODO: #7. Create selectable controls with Angular Material
+      ul { 
+        list-style: none;
+        margin: 5px 20px;
+        padding: 0;
+      }
+      
+      li {
+        margin: 10px 0;
+      }
+    }
+
+    .quantity {
+      flex-grow: 3;
+    }
+
+    .color {
+      flex-grow: 2;
+      margin: 0 0 10px 0;
+    }
+  }
+
+  .purchase-button {
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 5px;
+    background-color: mat.get-color-from-palette(mat.$pink-palette, A100);
+
+    // TODO: #12. Enable HighContrast mode
+
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 12px;
+
+    h3 {
+      margin: 16px 0 16px;
+    }
+  }
+}
+
+:host-context(.dark-theme) {
+  .dumpling-customizations .selection-card {
+    background-color: mat.get-color-from-palette(mat.$indigo-palette, 400);
+  }
+
+  .purchase-button {
+    background-color: mat.get-color-from-palette(mat.$light-green-palette, A100);
+
+    // TODO: #12. Enable HighContrast mode
+  }
+}

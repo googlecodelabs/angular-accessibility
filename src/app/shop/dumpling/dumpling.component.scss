@@ -1,0 +1,122 @@
+/**
+ * Copyright 2021 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ 
+// Adapted from https://codepen.io/osermay/pen/wrKQOd
+$dumpling-light: #efd7b8;
+$dumpling-dark: darken(#efd7b8, 15%);
+$dumpling-size: 100px;
+$dumpling-inner: 70px;
+$fold-size: 20px;
+
+@mixin center ($margin: auto, $left: 0, $right: 0) {
+  margin: $margin;
+  left: $left;
+  right: $right;
+}
+
+.container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  margin-bottom: -200px;
+}
+
+.dumpling-body {
+  @include center;
+  background-color: $dumpling-light;
+  width: $dumpling-size;
+  height: $dumpling-size/2;
+  border-top-left-radius: $dumpling-size;
+  border-top-right-radius: $dumpling-size;
+  border: #ffe9e9 solid 2px;
+}
+
+.shadow {
+  @include center;
+  opacity: 10%;
+  background-color: #ffebcd;
+  width: $dumpling-size * .9;
+  height: $dumpling-inner - $fold-size;
+  border-top-left-radius: $dumpling-size;
+  border-top-right-radius: $dumpling-size;
+  z-index: 100;
+}
+
+.fold-class {
+  position: absolute;
+  top: 0;
+  right: 60%;
+  border: #ffe9e9 solid 2px;
+  border-radius: 50%;
+  background-color: $dumpling-light;
+  width: $fold-size;
+  height: $fold-size;
+  z-index: -1;
+}
+
+.fold {
+  @extend .fold-class;
+  right: 68%;
+  top: 15.5%;
+}
+
+.fold2 {
+  @extend .fold-class;
+  right: 66%;
+  top: 7%;
+}
+
+.fold3 {
+  @extend .fold-class
+}
+
+.fold4 {
+  @include center;
+  @extend .fold-class;
+  right: 15%;
+  top: -4%;
+}
+
+.fold5 {
+  @include center;
+  @extend .fold-class;
+  top: -5%;
+}
+
+.fold6 {
+  @extend .fold5;
+  top: -4%;
+  left: 15%;
+}
+
+.fold7 {
+  @extend .fold;
+  left: 60%;
+  top: 0;
+}
+
+.fold8 {
+  @extend .fold;
+  left: 66%;
+  top: 7%;
+}
+
+.fold9 {
+  @extend .fold;
+  left: 68%;
+  top: 15.5%;
+}
