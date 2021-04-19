@@ -34,13 +34,16 @@ limitations under the License.
       <mat-card-content>
         <!-- TODO: #8. Provide control labels with ARIA -->
         <mat-slider
+          aria-label="Dumpling order quantity slider"
+          id="quantity"
+          name="quantity"
           color="primary"
           class="quantity-slider"
           [max]="13"
           [min]="1"
           [step]="1"
-          [thumbLabel]="true"
           [tickInterval]="1"
+          thumbLabel
           [(ngModel)]="quantity">
         </mat-slider>
       </mat-card-content>
