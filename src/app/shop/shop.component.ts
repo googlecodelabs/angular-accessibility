@@ -54,7 +54,7 @@ export class ShopComponent implements OnInit {
     if (this.fillings.chicken) { flavor += 'Chicken & Ginger '; }
     if (this.fillings.impossible) { flavor += 'Impossible Meat '; }
 
-    const fakePurchase = `Purchase ${this.quantity}${flavor} dumplings in the color ${this.color}!`;
+    const fakePurchase = `Purchase ${this.quantity} ${flavor}dumplings in the color ${this.color}!`;
     console.log(fakePurchase);
 
     // TODO: #11. Announce changes with LiveAnnouncer
