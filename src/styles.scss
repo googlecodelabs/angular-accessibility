@@ -1,4 +1,9 @@
 /**
+ Running this sample generates a warning about 'duplicated theming styles'
+ See for explanation https://github.com/angular/components/blob/master/guides/duplicate-theming-styles.md
+ */
+
+/**
  * Copyright 2021 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -69,12 +74,12 @@ $dark-theme: mat.define-dark-theme((
 }
 
 /* Global styles */
-html, body { 
-  height: 100%; 
+html, body {
+  height: 100%;
 }
 
-body { 
-  margin: 0; 
+body {
+  margin: 0;
   -webkit-appearance: none;
   background-color: mat.get-color-from-palette($light-accent, default);
   color: mat.get-contrast-color-from-palette($light-accent, default);
