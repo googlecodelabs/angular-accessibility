@@ -26,7 +26,12 @@ export class ShopComponent implements OnInit {
   color = 'gold';
 
   // TODO: #7. Create selectable controls with Angular Material
-  fillings: string[] = ['Bok Choy & Chili Crunch', 'Tofu & Mushroom', 'Chicken & Ginger', 'Impossible Meat & Spinach'];
+  fillings: string[] = [
+    'Bok Choy & Chili Crunch',
+    'Tofu & Mushroom',
+    'Chicken & Ginger',
+    'Impossible Meat & Spinach'
+  ];
   selectedFillings: string[] = [];
 
   // TODO: #11. Announce changes with LiveAnnouncer
@@ -34,15 +39,11 @@ export class ShopComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  counter(i: number): Array<number> {
-    return new Array(i);
-  }
-
-  public changeColor(color: string): void {
+  protected changeColor(color: string): void {
     this.color = color;
   }
 
-  fauxPurchase(): void {
+  protected fauxPurchase(): void {
     let flavor = '';
 
     // TODO: #7. Create selectable controls with Angular Material
@@ -56,4 +57,11 @@ export class ShopComponent implements OnInit {
     // TODO: #11. Announce changes with LiveAnnouncer
     this.liveAnnouncer.announce(fakePurchase);
   }
+
+  protected counter(i: number): Array<number> {
+    const arr = new Array(i);
+    // console.log(arr);
+    return arr;
+  }
+
 }
