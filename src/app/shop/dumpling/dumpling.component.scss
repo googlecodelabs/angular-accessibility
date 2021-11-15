@@ -15,6 +15,9 @@
  */
  
 // Adapted from https://codepen.io/osermay/pen/wrKQOd
+
+@use 'sass:math';
+
 $dumpling-light: #efd7b8;
 $dumpling-dark: darken(#efd7b8, 15%);
 $dumpling-size: 100px;
@@ -39,7 +42,7 @@ $fold-size: 20px;
   @include center;
   background-color: $dumpling-light;
   width: $dumpling-size;
-  height: $dumpling-size/2;
+  height: math.div($dumpling-size, 2);
   border-top-left-radius: $dumpling-size;
   border-top-right-radius: $dumpling-size;
   border: #ffe9e9 solid 2px;
