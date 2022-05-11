@@ -13,22 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Component, OnInit } from '@angular/core';
-
-// TODO: #4. Define unique page titles - add imports
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'a11y in Angular';
   isDark: boolean | undefined;
   bodyStyles: CSSStyleDeclaration | undefined;
-
-  // TODO: #4. Define unique page titles - add the TitleService and Router.
-  constructor() {}
-
-  ngOnInit(): void {}
 }
