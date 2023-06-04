@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 
@@ -23,7 +24,7 @@ export interface ColorDialogData {
 @Component({
   selector: 'app-color-picker-dialog',
   templateUrl: './color-picker-dialog.component.html',
-  styleUrls: ['./color-picker-dialog.component.scss']
+  styleUrls: ['./color-picker-dialog.component.scss'],
 })
 export class ColorPickerDialogComponent implements OnInit {
   @Output() recolor = new EventEmitter();
@@ -44,9 +45,12 @@ export class ColorPickerDialogComponent implements OnInit {
   ];
 
   // TODO: #11. Announce changes with LiveAnnouncer
-  constructor(public dialogRef: MatDialogRef<ColorPickerDialogComponent>) { }
+  constructor(
+    public dialogRef: MatDialogRef<ColorPickerDialogComponent>,
+    private liveAnnouncer: LiveAnnouncer
+  ) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   public changeColor(color: string): void {
     if (color) {
@@ -54,6 +58,7 @@ export class ColorPickerDialogComponent implements OnInit {
     }
 
     // TODO: #11. Announce changes with LiveAnnouncer
+    this.liveAnnouncer.announce(`Selected color: ${color}`);
     this.dialogRef.close();
   }
 
